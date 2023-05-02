@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
+flake8 = "*"
+mypy = "*"
+pylint = "*"
+black = "*"
 
 [dev-packages]
 

@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  fastapi:
+    build: .
+    container_name: fastapi_cont
+    restart: always
+    command: uvicorn main:app --host 0.0.0.0
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/code/
+
+  redis:
+    image: redis:alpine
+    container_name: redis_cont
