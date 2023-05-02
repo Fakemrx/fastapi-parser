@@ -1,4 +1,4 @@
-name: Run tests, flake8, mypy
+name: Build docker, run flake8 and mypy
 on:
   push:
     branches:
@@ -15,6 +15,6 @@ jobs:
       - name: Docker
         run: docker compose up -d --build
       - name: Flake8
-        run: docker-compose exec -T fastapi_project flake8 .
+        run: docker-compose exec -T fastapi flake8 .
       - name: Mypy
-        run: docker-compose exec -T fastapi_project mypy .
+        run: docker-compose exec -T fastapi mypy .
