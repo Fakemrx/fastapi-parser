@@ -11,6 +11,8 @@ mypy = "*"
 pylint = "*"
 black = "*"
 pre-commit = "*"
+pymongo = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
