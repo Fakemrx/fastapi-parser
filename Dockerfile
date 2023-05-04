@@ -1,11 +1,11 @@
 FROM python:3.9
 
-WORKDIR /code
+WORKDIR /project
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY Pipfile Pipfile.lock /code/
+COPY Pipfile Pipfile.lock /project/
 
 RUN apt-get update
 RUN pip install -U pipenv

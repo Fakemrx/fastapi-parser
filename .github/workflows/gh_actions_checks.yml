@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: create .env file
+        run: |
+            echo MONGO_INITDB_ROOT_USERNAME=${{ secrets.MONGO_INITDB_ROOT_USERNAME }} >> .env
+            echo MONGO_INITDB_ROOT_PASSWORD=${{ secrets.MONGO_INITDB_ROOT_PASSWORD }} >> .env
+            echo MONGO_INITDB_DATABASE=${{ secrets.MONGO_INITDB_DATABASE }} >> .env
+            echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
       - name: Docker
         run: docker compose up -d --build
       - name: Flake8
