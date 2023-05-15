@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from dotenv import dotenv_values
 from pymongo import MongoClient
 
+from parsing_scripts.lamoda_parser import parse_page
+
 config = dotenv_values(".env")
 
 app = FastAPI()
@@ -21,3 +23,9 @@ def shutdown_db_client():
     """Shuts down DB after an app was stopped."""
     app.mongodb_client.close()
     print("MongoDB database connection were closed.")
+
+
+@app.get("/clothes")
+def clothes_retrieve(url_to_parse: str):
+    """Page that parses lamoda's page"""
+    return parse_page(url_to_parse)
