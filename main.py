@@ -21,3 +21,10 @@ def shutdown_db_client():
     """Shuts down DB after an app was stopped."""
     app.mongodb_client.close()
     print("MongoDB database connection were closed.")
+
+
+@app.get("/ping")
+def ping():
+    """Check availability of server"""
+    coll_example = str(app.database.list_collections().next())
+    return {"Collection example": coll_example}
